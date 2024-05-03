@@ -7,11 +7,16 @@ const { connection } = require('./config/db');
 
 require('dotenv').config();
 
+
+const adminRouter = require("./routes/Admin.routes")
+
 const app = express();
 app.use(express.json());
 app.use(cors({
     origin: "*"
 }));
+
+app.use("/api/admin", adminRouter)
 
 app.get("/", (req, res) => {
     res.send("API is running");
