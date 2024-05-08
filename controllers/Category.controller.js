@@ -6,7 +6,7 @@ exports.createCategory = async (req, res) => {
 
         let CategoryExist = await Category.findOne({ name: name });
         if (CategoryExist)
-            return res.status(403).json({
+            return res.status(203).json({
                 errorcode: 2,
                 status: false,
                 message: "Category Already Exists",
@@ -14,7 +14,7 @@ exports.createCategory = async (req, res) => {
             });
 
         let category = new Category({
-            image: req.file && req.file.location ? req.file.location : null,
+            // image: req.file && req.file.location ? req.file.location : null,
             name,
         });
 
@@ -109,7 +109,7 @@ exports.editCategory = async (req, res) => {
         })
 
         editCategory.name = name ? name : editCategory.name
-        editCategory.image = req.file && req.file.location ? req.file.location : editCategory.image
+        // editCategory.image = req.file && req.file.location ? req.file.location : editCategory.image
 
         await editCategory.save()
 
