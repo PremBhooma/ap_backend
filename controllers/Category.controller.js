@@ -9,7 +9,7 @@ exports.createCategory = async (req, res) => {
             return res.status(403).json({
                 errorcode: 2,
                 status: false,
-                message: "Category already exists",
+                message: "Category Already Exists",
                 data: null,
             });
 
@@ -63,21 +63,21 @@ exports.deleteCategory = async (req, res) => {
         if (!id) return res.status(403).json({
             errorcode: 1,
             status: false,
-            message: "Id should be Present",
+            message: "Id Should Be Present",
             data: null
         })
         let CategoryId = await Category.findById({ _id: id })
         if (!CategoryId) return res.status(404).json({
             errorcode: 2,
             status: false,
-            message: "Category not found",
+            message: "Category Not Found",
             data: null
         })
         await Category.deleteOne({ _id: id })
         return res.status(200).json({
             errorcode: 0,
             status: true,
-            message: "Category deleted successfully",
+            message: "Category Deleted Successfully",
             data: null
         })
 
@@ -97,14 +97,14 @@ exports.editCategory = async (req, res) => {
         if (!id) return res.status(403).json({
             errorcode: 1,
             status: false,
-            message: "Id should be Present",
+            message: "Id Should Be Present",
             data: null
         })
         let editCategory = await Category.findById(id)
         if (!editCategory) return res.status(404).json({
             errorcode: 2,
             status: false,
-            message: "Category not found",
+            message: "Category Not Found",
             data: null
         })
 
@@ -116,7 +116,7 @@ exports.editCategory = async (req, res) => {
         return res.status(200).json({
             errorcode: 0,
             status: false,
-            message: "Category edit successfully",
+            message: "Category Edit Successfully",
             data: editCategory
         })
     } catch (error) {

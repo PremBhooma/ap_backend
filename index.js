@@ -10,6 +10,7 @@ require('dotenv').config();
 
 const adminRouter = require("./routes/Admin.routes");
 const categoryRouter = require("./routes/Category.routes");
+const aiToolRouter = require("./routes/AiTool.routes");
 
 const app = express();
 app.use(express.json());
@@ -19,6 +20,7 @@ app.use(cors({
 
 app.use("/api/admin", adminRouter);
 app.use("/api/category", categoryRouter);
+app.use("/api/aitool", aiToolRouter);
 
 app.get("/", (req, res) => {
     res.send("API is running");

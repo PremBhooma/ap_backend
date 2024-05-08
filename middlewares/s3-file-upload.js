@@ -47,7 +47,20 @@ const uploadS3CategoryProfile = multer({
     })
 });
 
+const uploadS3AiToolImage = multer({
+    storage: multerS3({
+        s3: s3,
+        bucket: BUCKET_NAME,
+        metadata: (req, file, callBack) => callBack(null, { fieldName: file.fieldname }),
+        contentType: multerS3.AUTO_CONTENT_TYPE,
+        serverSideEncryption: "AES256",
+        cacheControl: "max-age=31536000",
+        key: (req, file, cb) => cb(null, getFileKey(file, "aiTool"))
+    })
+});
+
 module.exports = {
     uploadS3AdminProfile: uploadS3AdminProfile,
     uploadS3CategoryProfile: uploadS3CategoryProfile,
+    uploadS3AiToolImage: uploadS3AiToolImage,
 };
