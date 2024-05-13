@@ -20,7 +20,7 @@ exports.createCategory = async (req, res) => {
 
         category = await category.save();
 
-        return res.status(201).json({
+        return res.status(200).json({
             errorcode: 0,
             status: true,
             message: "Category Added Successfully",
