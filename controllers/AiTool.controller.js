@@ -68,6 +68,7 @@ exports.editAiTool = async (req, res) => {
     editAiTool.shortDescription = shortDescription || editAiTool.shortDescription;
     editAiTool.SubscriptionTier = SubscriptionTier || editAiTool.SubscriptionTier;
     editAiTool.price = price || editAiTool.price;
+
     try {
       editAiTool.tags = tags ? JSON.parse(tags) : editAiTool.tags;
     } catch (error) {
