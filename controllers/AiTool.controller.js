@@ -72,7 +72,7 @@ exports.editAiTool = async (req, res) => {
     try {
       editAiTool.tags = tags ? JSON.parse(tags) : editAiTool.tags;
     } catch (error) {
-      console.error("Error parsing tags:", error.message);
+      console.error("Errorrrrrr parsing tags:", error.message);
       editAiTool.tags = editAiTool.tags;
     }
 
